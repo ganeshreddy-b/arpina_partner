@@ -1,0 +1,2 @@
+include ':app', ':chat-ui'
+rootProject.name = "AndroidAmcService_android"
