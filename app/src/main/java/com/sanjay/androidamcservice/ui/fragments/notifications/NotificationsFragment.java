@@ -1,4 +1,4 @@
-package com.sanjay.androidamcservice.ui.activity.ui.notifications;
+package com.sanjay.androidamcservice.ui.fragments.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

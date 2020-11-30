@@ -1,4 +1,4 @@
-package com.sanjay.androidamcservice.ui.activity.ui.home;
+package com.sanjay.androidamcservice.ui.fragments.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.sanjay.androidamcservice.R;
 import com.sanjay.androidamcservice.chat.service.XMPP;
-import com.sanjay.androidamcservice.utils.ConnectionUtils;
 
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;

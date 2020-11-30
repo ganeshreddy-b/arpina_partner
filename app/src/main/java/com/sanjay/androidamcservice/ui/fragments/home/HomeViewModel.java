@@ -1,4 +1,4 @@
-package com.sanjay.androidamcservice.ui.activity.ui.home;
+package com.sanjay.androidamcservice.ui.fragments.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

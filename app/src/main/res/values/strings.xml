@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">AndroidAmcService_android</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_support">Support</string>
+    <string name="title_refer">Refer</string>
+    <string name="title_myProfile">My Profile</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_splash">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
@@ -31,4 +33,6 @@
     <string name="menu_tools">tools</string>
     <string name="menu_share">share</string>
     <string name="menu_send">send</string>
+    <string name="enter_mobilenumber">Enter You\'re Mobile Number</string>
+    <string name="request_otp">Request OTP</string>
 </resources>

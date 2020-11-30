@@ -1,17 +1,17 @@
-package com.sanjay.androidamcservice.ui.activity;
+package com.sanjay.androidamcservice.ui.activities;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.sanjay.androidamcservice.R;
+import com.sanjay.androidamcservice.databinding.ActivityDashboardBinding;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -30,12 +30,14 @@ public class DashboardActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavView;
     private CoordinatorLayout contentView;
 
+    private ActivityDashboardBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
+//        setContentView(R.layout.activity_dashboard);
         initToolbar();
-        initFab();
+//        initFab();
         initNavigation();
 
 
@@ -48,18 +50,18 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    private void initFab() {
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-    }
+//    private void initFab() {
+//
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+//
+//    }
 
     private void initNavigation() {
 
@@ -73,7 +75,7 @@ public class DashboardActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_tools, R.id.nav_share, R.id.nav_send,
-                R.id.bottom_home, R.id.bottom_dashboard, R.id.bottom_notifications)
+                R.id.bottom_home, R.id.bottom_support, R.id.bottom_refer)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -118,7 +120,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

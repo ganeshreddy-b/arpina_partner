@@ -1,4 +1,4 @@
-package com.sanjay.androidamcservice.ui.activity.ui.dashboard;
+package com.sanjay.androidamcservice.ui.fragments.share;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,18 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.sanjay.androidamcservice.R;
 
-public class DashboardFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+public class ShareFragment extends Fragment {
+
+    private ShareViewModel shareViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
+        shareViewModel =
+                ViewModelProviders.of(this).get(ShareViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_share, container, false);
+        final TextView textView = root.findViewById(R.id.text_share);
+        shareViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
