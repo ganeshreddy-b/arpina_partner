@@ -30,12 +30,12 @@ public interface ApiInterface {
 
     @POST("api/validate_login_phone/")
     @Multipart
-    Call<ValidatePhoneResponse> LOGIN_RESPONSE_CALL(@Part("phone") String phone);
+    Call<ValidatePhoneResponse> LOGIN_RESPONSE_CALL(@Part("phone") RequestBody phone);
 
 
     @POST("api/validate_login_otp/")
     @Multipart
-    Call<LoginPhoneResponse> VALIDATE_OTP_LOGIN(@Part("phone") String phone, @Part("otp") String otp);
+    Call<LoginPhoneResponse> VALIDATE_OTP_LOGIN(@Part("phone") RequestBody phone, @Part("otp") RequestBody otp);
 
 
     @POST("api/register/")

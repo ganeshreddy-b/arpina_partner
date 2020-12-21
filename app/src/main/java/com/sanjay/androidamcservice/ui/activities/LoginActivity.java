@@ -31,6 +31,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
 
+    private static final String TAG = LoginActivity.class.getSimpleName();
     private ActivityLoginBinding binding;
     AppSharedPreference appSharedPreference;
 
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void validatePhone() {
-        String phone = binding.editTextPhone.getText().toString();
+        RequestBody phone = RequestBody.create(MediaType.parse("text/plain"), binding.editTextPhone.getText().toString());
         Call<ValidatePhoneResponse> validatePhoneResponseCall = Constants.apiInterface.LOGIN_RESPONSE_CALL(phone);
         validatePhoneResponseCall.enqueue(new Callback<ValidatePhoneResponse>() {
             @Override
@@ -73,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 //                if (response.isSuccessful()) {
 //                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
 //                }
+                Log.d(TAG, "onResponse: "+response);
             }
 
             @Override
@@ -83,9 +85,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validateOtp(String otp) {
-        String phone = binding.editTextPhone.getText().toString();
-
-        Call<LoginPhoneResponse> validate_otp = Constants.apiInterface.VALIDATE_OTP_LOGIN(phone, otp);
+        RequestBody phone = RequestBody.create(MediaType.parse("text/plain"), binding.editTextPhone.getText().toString());
+        RequestBody otpreq = RequestBody.create(MediaType.parse("text/plain"), otp);
+        Call<LoginPhoneResponse> validate_otp = Constants.apiInterface.VALIDATE_OTP_LOGIN(phone, otpreq);
         validate_otp.enqueue(new Callback<LoginPhoneResponse>() {
             @Override
             public void onResponse(Call<LoginPhoneResponse> call, Response<LoginPhoneResponse> response) {

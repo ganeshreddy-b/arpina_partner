@@ -14,8 +14,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.sanjay.androidamcservice.R;
 
-import org.jivesoftware.smack.SmackException;
-import org.jivesoftware.smack.XMPPException;
 
 import java.io.IOException;
 
