@@ -8,6 +8,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.sanjay.androidamcservice.R;
 import com.sanjay.androidamcservice.databinding.ActivityDashboardBinding;
+import com.sanjay.androidamcservice.utils.AppSharedPreference;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
@@ -31,11 +32,16 @@ public class DashboardActivity extends AppCompatActivity {
     private CoordinatorLayout contentView;
 
     private ActivityDashboardBinding binding;
+    AppSharedPreference appSharedPreference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
 //        setContentView(R.layout.activity_dashboard);
+        appSharedPreference = new AppSharedPreference(this);
+        appSharedPreference.setIS_LOGGED_INKEY(true);
+
         initToolbar();
 //        initFab();
         initNavigation();
@@ -130,8 +136,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
 
