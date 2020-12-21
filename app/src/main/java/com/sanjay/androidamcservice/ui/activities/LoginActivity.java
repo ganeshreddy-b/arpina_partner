@@ -2,22 +2,21 @@ package com.sanjay.androidamcservice.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
-import androidx.viewbinding.ViewBinding;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.mukesh.OnOtpCompletionListener;
-import com.mukesh.OtpView;
 import com.sanjay.androidamcservice.R;
 import com.sanjay.androidamcservice.app.Constants;
 import com.sanjay.androidamcservice.databinding.ActivityLoginBinding;
-import com.sanjay.androidamcservice.repository.dto.LoginResponse;
+import com.sanjay.androidamcservice.repository.dto.ValidatePhoneResponse;
+import com.sanjay.androidamcservice.repository.dto.login.LoginPhoneResponse;
+import com.sanjay.androidamcservice.utils.AppSharedPreference;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -33,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private ActivityLoginBinding binding;
+    AppSharedPreference appSharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         //    cirLoginButton = findViewById(R.id.btnRequestOTP);
-
+        appSharedPreference = new AppSharedPreference(this);
         binding.btnRequestOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,35 +48,65 @@ public class LoginActivity extends AppCompatActivity {
                 binding.otpView.setVisibility(View.VISIBLE);
                 binding.btnRequestOTP.setVisibility(View.GONE);
 //                login();
+                validatePhone();
 
             }
         });
         binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
             public void onOtpCompleted(String otp) {
-                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+//                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                 // do Stuff
                 Log.d("onOtpCompleted=>", otp);
+                validateOtp(otp);
             }
         });
     }
 
 
-    private void login() {
-        RequestBody email = RequestBody.create(MediaType.parse("text/plain"), "test1@gmail.com");
-        RequestBody password = RequestBody.create(MediaType.parse("text/plain"), "123456");
-        Call<LoginResponse> loginCall = Constants.apiInterface.LOGIN_CALL(email, password);
-        loginCall.enqueue(new Callback<LoginResponse>() {
+    private void validatePhone() {
+        String phone = binding.editTextPhone.getText().toString();
+        Call<ValidatePhoneResponse> validatePhoneResponseCall = Constants.apiInterface.LOGIN_RESPONSE_CALL(phone);
+        validatePhoneResponseCall.enqueue(new Callback<ValidatePhoneResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<ValidatePhoneResponse> call, Response<ValidatePhoneResponse> response) {
+//                if (response.isSuccessful()) {
+//                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+//                }
+            }
+
+            @Override
+            public void onFailure(Call<ValidatePhoneResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this,"error"+t.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void validateOtp(String otp) {
+        String phone = binding.editTextPhone.getText().toString();
+
+        Call<LoginPhoneResponse> validate_otp = Constants.apiInterface.VALIDATE_OTP_LOGIN(phone, otp);
+        validate_otp.enqueue(new Callback<LoginPhoneResponse>() {
+            @Override
+            public void onResponse(Call<LoginPhoneResponse> call, Response<LoginPhoneResponse> response) {
                 if (response.isSuccessful()) {
+                    appSharedPreference.setFirstNameKey(response.body().getUser().getFirstName());
+                    appSharedPreference.setLastNameKey(response.body().getUser().getLastName());
+                    appSharedPreference.setPhoneKey(response.body().getUser().getPhone());
+                    appSharedPreference.setEmailKey(response.body().getUser().getEmail());
+                    appSharedPreference.setTokenKey(response.body().getToken());
+                    appSharedPreference.setAboutmeKey(response.body().getUser().getAboutMe());
+                    appSharedPreference.setAddressKey(response.body().getUser().getAddress());
+                    appSharedPreference.setBirthKey(response.body().getUser().getBirthDate());
+                    appSharedPreference.setCityKey(response.body().getUser().getCity());
+                    appSharedPreference.setUsernameKey(response.body().getUser().getUsername());
                     startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                 }
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-
+            public void onFailure(Call<LoginPhoneResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this,"error"+t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
     }
