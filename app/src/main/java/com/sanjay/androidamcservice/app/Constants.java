@@ -27,7 +27,7 @@ public class Constants {
     public static final String USER_NAME = "k";
     //    public static String HOST = "3.86.245.10";
 //    public static String HOST = "http://192.169.29.110";
-    public static String HOST = "http://10.0.2.2";
+    public static String HOST = "http://192.168.1.112";
 //    public static String HOST = "206.189.136.186";
     public static DatabaseHandlerClass databaseHandlerClass = new DatabaseHandlerClass(MyApplication.getContext());
     public static ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
