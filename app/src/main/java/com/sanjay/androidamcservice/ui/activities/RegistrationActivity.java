@@ -12,7 +12,10 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import com.sanjay.androidamcservice.R;
@@ -21,8 +24,11 @@ import com.sanjay.androidamcservice.ui.fragments.RegisterDealerIdFragment;
 import com.sanjay.androidamcservice.ui.fragments.RegisterShippingFragment;
 import com.ydn.viewpagerwithicons.StateViewPager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int NUM_PAGES = 4;
+    private static final int NUM_PAGES = 3;
 
     private StateViewPager mPager;
     private PagerAdapter mPagerAdapter;
@@ -39,43 +45,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         mPager = findViewById(R.id.pager);
 
         Display display = ((android.view.WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        mPager.getLayoutParams().height = (int) (display.getHeight() * 0.4);
+        mPager.getLayoutParams().height = (int) (display.getHeight() * 1);
 
         mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
-
-//
-//        final ArrayAdapter<String> orientationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, orienatations);
-//        orientationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        orientationSpinner.setAdapter(orientationAdapter);
-//
-//        final List<String> samples = new ArrayList<>();
-//        samples.add("Sample 1");
-//        samples.add("Sample 2");
-//        samples.add("Sample 3");
-//        samples.add("Sample 4");
-//        samples.add("Sample 5");
-//        samples.add("Sample 6");
-//        samples.add("Sample 7");
-//
-//        final Spinner variantsSpinner = findViewById(R.id.spinner_variants);
-//        final ArrayAdapter<String> variantsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, samples);
-//        variantsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        variantsSpinner.setAdapter(variantsAdapter);
-//
-//        variantsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-//                mCurrentConfiguration = position;
-//                setConfiguration();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
+        setConfiguration();
     }
 
     @Override
@@ -136,7 +111,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             mPager.setIntermediateIconSize(130, 3);
         }
 
-        mPager.setNumberOfIcons(4)
+        mPager.setNumberOfIcons(3)
                 //.setOrientation(LinearLayout.VERTICAL)
                 .setMargins(10, 10, 10, 10)
                 //.setGravity(Gravity.LEFT)
@@ -156,9 +131,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 .setBorderColors(Color.parseColor("#D6DBDF"), Color.parseColor("#f0f0f0"), Color.parseColor("#D6DBDF"))
                 .setGradientColors(false, false, false)
                 .setTitles(new String[]{
-                        "Shipping",
-                        "Payment",
-                        "Confirm",
+                        "Contact Details",
+                        "Shipping Address",
                         "Done!"})
                 .setIconColors(Color.parseColor("#0288D1"), Color.parseColor("#0288D1"), Color.parseColor("#f0f0f0"))
                 .setRectangularIcons(false, false, false)
@@ -436,7 +410,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 case 2:
                     return new RegisterDealerIdFragment();
             }
-            return new RegisterContactFragment();
+            return new RegisterDealerIdFragment();
         }
 
         @Override
