@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact Details"
+            android:text="Shipping Address"
             android:layout_marginBottom="10dp">
 
         </TextView>
@@ -27,26 +27,16 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etvFirstName"
+                android:id="@+id/etvAddressLine1"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/edit_text_box_view"
-                android:hint="First Name"
+                android:hint="Address Line 1"
                 android:paddingLeft="10dp">
 
             </EditText>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="First Name"
-                android:textColor="@color/black">
-
-            </TextView>
 
         </RelativeLayout>
 
@@ -56,26 +46,16 @@
             android:layout_marginTop="20dp">
 
             <EditText
-                android:id="@+id/etvSecondName"
+                android:id="@+id/etvAddressLine2"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/edit_text_box_view"
-                android:hint="Second Name"
+                android:hint="Address Line 2"
                 android:paddingLeft="10dp">
 
             </EditText>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="Second Name"
-                android:textColor="@color/black">
-
-            </TextView>
 
         </RelativeLayout>
         <RelativeLayout
@@ -84,26 +64,15 @@
             android:layout_marginTop="20dp">
 
             <EditText
-                android:id="@+id/etvEmail"
+                android:id="@+id/etvState"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/edit_text_box_view"
-                android:hint="Email"
+                android:hint="State"
                 android:paddingLeft="10dp">
 
             </EditText>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="Email"
-                android:textColor="@color/black">
-
-            </TextView>
 
         </RelativeLayout>
         <RelativeLayout
@@ -112,26 +81,33 @@
             android:layout_marginTop="20dp">
 
             <EditText
-                android:id="@+id/etvPhoneNumber"
+                android:id="@+id/etvCountry"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/edit_text_box_view"
-                android:hint="Phone Number"
+                android:hint="Country"
                 android:paddingLeft="10dp">
 
             </EditText>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="Phone Number"
-                android:textColor="@color/black">
 
-            </TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/etvZip"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/edit_text_box_view"
+                android:hint="Zip"
+                android:paddingLeft="10dp">
+
+            </EditText>
 
 
         </RelativeLayout>

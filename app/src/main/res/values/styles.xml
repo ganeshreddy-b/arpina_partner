@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Widget.Theme.AndroidAmcService_android.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
@@ -69,6 +69,21 @@
         <item name="android:layout_height">wrap_content</item>
 
     </style>
+
+
+    <style name="edit_box_view">
+
+        <solid android:color="#FFFFFF"/>
+
+        <stroke
+            android:width="2dp"
+            android:color="#E7E7E7"
+            android:height="10dp"/>
+
+        <corners
+            android:radius="5dp"/>
+    </style>
+
 
 
     <style name="loginButton" parent="viewParent">
