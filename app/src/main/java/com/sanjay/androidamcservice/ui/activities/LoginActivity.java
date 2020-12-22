@@ -16,6 +16,7 @@ import com.sanjay.androidamcservice.app.Constants;
 import com.sanjay.androidamcservice.databinding.ActivityLoginBinding;
 import com.sanjay.androidamcservice.repository.dto.ValidatePhoneResponse;
 import com.sanjay.androidamcservice.repository.dto.login.LoginPhoneResponse;
+import com.sanjay.androidamcservice.utils.AlertBoxUtils;
 import com.sanjay.androidamcservice.utils.AppSharedPreference;
 
 import okhttp3.MediaType;
@@ -74,12 +75,16 @@ public class LoginActivity extends AppCompatActivity {
 //                if (response.isSuccessful()) {
 //                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
 //                }
-                Log.d(TAG, "onResponse: "+response);
+                if (response.isSuccessful()) {
+                    AlertBoxUtils alertBoxUtils = new AlertBoxUtils(LoginActivity.this);
+                    alertBoxUtils.registerAlertBox("Need to Register", "Need to register First", "go to Register", "cancel");
+                }
+                Log.d(TAG, "onResponse: " + response);
             }
 
             @Override
             public void onFailure(Call<ValidatePhoneResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this,"error"+t.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "error" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -108,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginPhoneResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this,"error"+t.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "error" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

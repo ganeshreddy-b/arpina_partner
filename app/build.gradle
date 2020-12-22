@@ -9,7 +9,7 @@ android {
     defaultConfig {
         multiDexEnabled true
         applicationId "com.sanjay.androidamcservice"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -43,6 +43,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.mediarouter:mediarouter:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -108,4 +109,12 @@ dependencies {
 //    qrcode generator
     implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.4'
     implementation 'com.google.zxing:core:3.3.3'
+
+//    step by step registration
+    implementation 'com.google.guava:guava:27.0.1-android'
+    implementation 'com.github.YablokovDmitry:StateViewPager:v1.1'
+
+//    material alert
+    implementation 'com.google.android.material:material:1.3.0-beta01'
+
 }

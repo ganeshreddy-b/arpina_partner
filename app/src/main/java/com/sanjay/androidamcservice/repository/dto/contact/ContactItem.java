@@ -6,9 +6,7 @@ public class ContactItem {
 
     private String displayName;
     private String photoUrl;
-    private ArrayList<PhoneContact> arrayListPhone = new ArrayList<>();
-    private ArrayList<EmailContact> arrayListEmail = new ArrayList<>();
-    private ArrayList<PostalAddress> arrayListAddress = new ArrayList<>();
+    private String phoneNumber;
 
 
     public String getDisplayName() {
@@ -27,27 +25,11 @@ public class ContactItem {
         this.photoUrl = photoUrl;
     }
 
-    public ArrayList<PhoneContact> getArrayListPhone() {
-        return arrayListPhone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setArrayListPhone(ArrayList<PhoneContact> arrayListPhone) {
-        this.arrayListPhone = arrayListPhone;
-    }
-
-    public ArrayList<EmailContact> getArrayListEmail() {
-        return arrayListEmail;
-    }
-
-    public void setArrayListEmail(ArrayList<EmailContact> arrayListEmail) {
-        this.arrayListEmail = arrayListEmail;
-    }
-
-    public ArrayList<PostalAddress> getArrayListAddress() {
-        return arrayListAddress;
-    }
-
-    public void setArrayListAddress(ArrayList<PostalAddress> arrayListAddress) {
-        this.arrayListAddress = arrayListAddress;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

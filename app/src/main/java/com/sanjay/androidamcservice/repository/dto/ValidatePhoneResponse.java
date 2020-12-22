@@ -8,6 +8,9 @@ public class ValidatePhoneResponse {
     @SerializedName("status")
     @Expose
     private Boolean status;
+    @SerializedName("code")
+    @Expose
+    private int code;
     @SerializedName("detail")
     @Expose
     private String detail;
@@ -28,4 +31,11 @@ public class ValidatePhoneResponse {
         this.detail = detail;
     }
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 }
