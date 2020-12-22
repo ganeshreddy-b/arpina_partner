@@ -58,4 +58,10 @@
         android:name="com.sanjay.androidamcservice.ui.fragments.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/bottom_myProfile"
+        android:name="com.sanjay.androidamcservice.ui.fragments.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>
