@@ -10,16 +10,16 @@
 
     <item
         android:id="@+id/bottom_support"
-        android:icon="@android:drawable/stat_sys_headset"
+        android:icon="@drawable/support"
         android:title="@string/title_support" />
 
     <item
         android:id="@+id/bottom_refer"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/refer"
         android:title="@string/title_refer" />
     <item
         android:id="@+id/bottom_myProfile"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/profileimg"
         android:title="@string/title_myProfile" />
 
 </menu>

@@ -3,6 +3,7 @@
     package="com.sanjay.androidamcservice">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAmcService_android"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ticket_view"></activity>
         <activity
             android:name=".ui.activities.DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/Theme.AndroidAmcService_android.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AndroidAmcService_android.NoActionBar"></activity>
         <activity
             android:name=".ui.activities.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
