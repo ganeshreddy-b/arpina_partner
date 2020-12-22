@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,18 +47,21 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final ContactItem contact = contactListFiltered.get(position);
         holder.name.setText(contact.getDisplayName());
-        holder.number.setText(contact.getArrayListPhone().get(0).getPhone());
+        holder.number.setText("");
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return contactListFiltered.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView name,number;
+        ImageView contactimage;
         public MyViewHolder(View itemView) {
             super(itemView);
+            contactimage=itemView.findViewById(R.id.IVContactImage);
             name= (TextView) itemView.findViewById(R.id.TVcontactname);
             number= (TextView) itemView.findViewById(R.id.TVnumber);
 

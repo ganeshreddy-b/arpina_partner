@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sanjay.androidamcservice.R;
@@ -36,9 +40,9 @@ import java.util.List;
 public class NotificationsFragment extends Fragment implements ContactListAdapter.ContactsAdapterListener {
 
     FragmentNotificationsBinding binding;
-    private RecyclerView recyclerView;
-    private List<ContactItem> contactList;
+    private List<ContactItem> contactList=new ArrayList<>();
     private ContactListAdapter mAdapter;
+    private String TAG=NotificationsFragment.class.getSimpleName();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +57,12 @@ public class NotificationsFragment extends Fragment implements ContactListAdapte
 //                textView.setText(s);
 //            }
 //        });
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        binding.RVContactList.setLayoutManager(mLayoutManager);
+        binding.RVContactList.setItemAnimator(new DefaultItemAnimator());
+//        binding.RVContactList.addItemDecoration(new MyDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
+        binding.RVContactList.setAdapter(mAdapter);
         binding.SVContactsearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -152,6 +162,7 @@ public class NotificationsFragment extends Fragment implements ContactListAdapte
         if (mainCursor != null) {
             mainCursor.close();
         }
+        Log.d(TAG, "getReadContacts: "+contactList.size());
         return contactList;
     }
 
@@ -159,4 +170,5 @@ public class NotificationsFragment extends Fragment implements ContactListAdapte
     public void onContactSelected(ContactItem contact) {
         Toast.makeText(getContext(), "Selected: " + contact.getPhotoUrl() + ", " + contact.getDisplayName(), Toast.LENGTH_LONG).show();
     }
+
 }
