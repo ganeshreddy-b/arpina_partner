@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -13,21 +12,14 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import com.sanjay.androidamcservice.R;
-import com.sanjay.androidamcservice.ui.fragments.RegisterAccountTypeFragment;
 import com.sanjay.androidamcservice.ui.fragments.RegisterContactFragment;
 import com.sanjay.androidamcservice.ui.fragments.RegisterDealerIdFragment;
 import com.sanjay.androidamcservice.ui.fragments.RegisterShippingFragment;
 import com.ydn.viewpagerwithicons.StateViewPager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int NUM_PAGES = 4;
@@ -52,96 +44,38 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
-        mToggleButtons[0] = findViewById(R.id.toggle_button_top);
-        mToggleButtons[1] = findViewById(R.id.toggle_button_bottom);
-        mToggleButtons[2] = findViewById(R.id.toggle_button_left);
-        mToggleButtons[3] = findViewById(R.id.toggle_button_right);
 
-        mToggleButtons[0].setEnabled(true);
-        mToggleButtons[1].setEnabled(true);
-        mToggleButtons[2].setEnabled(false);
-        mToggleButtons[3].setEnabled(false);
-
-        for (ToggleButton toggleButton : mToggleButtons) {
-            toggleButton.setChecked(false);
-            toggleButton.setOnClickListener(this);
-        }
-        mToggleButtons[0].setChecked(true);
-
-        final List<String> orienatations = new ArrayList<>();
-        orienatations.add("HORIZONTAL");
-        orienatations.add("VERTICAL");
-
-        Spinner orientationSpinner = findViewById(R.id.spinner_orientation);
-        orientationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                if (position == 0) {
-                    if (mOrientatation != LinearLayout.HORIZONTAL) {
-                        mGravity = Gravity.TOP;
-                        mToggleButtons[0].setChecked(true);
-                    }
-
-                    mOrientatation = LinearLayout.HORIZONTAL;
-
-                    mToggleButtons[0].setEnabled(true);
-                    mToggleButtons[1].setEnabled(true);
-                    mToggleButtons[2].setEnabled(false);
-                    mToggleButtons[3].setEnabled(false);
-
-                } else {
-                    if (mOrientatation != LinearLayout.VERTICAL) {
-                        mGravity = Gravity.LEFT;
-                        mToggleButtons[2].setChecked(true);
-                    }
-
-                    mOrientatation = LinearLayout.VERTICAL;
-
-                    mToggleButtons[0].setEnabled(false);
-                    mToggleButtons[1].setEnabled(false);
-                    mToggleButtons[2].setEnabled(true);
-                    mToggleButtons[3].setEnabled(true);
-                }
-
-                setConfiguration();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // TODO Auto-generated method stub
-            }
-        });
-
-        final ArrayAdapter<String> orientationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, orienatations);
-        orientationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        orientationSpinner.setAdapter(orientationAdapter);
-
-        final List<String> samples = new ArrayList<>();
-        samples.add("Sample 1");
-        samples.add("Sample 2");
-        samples.add("Sample 3");
-        samples.add("Sample 4");
-        samples.add("Sample 5");
-        samples.add("Sample 6");
-        samples.add("Sample 7");
-
-        final Spinner variantsSpinner = findViewById(R.id.spinner_variants);
-        final ArrayAdapter<String> variantsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, samples);
-        variantsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        variantsSpinner.setAdapter(variantsAdapter);
-
-        variantsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                mCurrentConfiguration = position;
-                setConfiguration();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // TODO Auto-generated method stub
-            }
-        });
+//
+//        final ArrayAdapter<String> orientationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, orienatations);
+//        orientationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        orientationSpinner.setAdapter(orientationAdapter);
+//
+//        final List<String> samples = new ArrayList<>();
+//        samples.add("Sample 1");
+//        samples.add("Sample 2");
+//        samples.add("Sample 3");
+//        samples.add("Sample 4");
+//        samples.add("Sample 5");
+//        samples.add("Sample 6");
+//        samples.add("Sample 7");
+//
+//        final Spinner variantsSpinner = findViewById(R.id.spinner_variants);
+//        final ArrayAdapter<String> variantsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, samples);
+//        variantsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        variantsSpinner.setAdapter(variantsAdapter);
+//
+//        variantsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+//                mCurrentConfiguration = position;
+//                setConfiguration();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//                // TODO Auto-generated method stub
+//            }
+//        });
     }
 
     @Override
@@ -500,8 +434,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 case 1:
                     return new RegisterShippingFragment();
                 case 2:
-                    return new RegisterAccountTypeFragment();
-                case 3:
                     return new RegisterDealerIdFragment();
             }
             return new RegisterContactFragment();

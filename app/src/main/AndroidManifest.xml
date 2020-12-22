@@ -18,9 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAmcService_android"
-        tools:overrideLibrary="com.ydn.viewpagerwithicons"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activities.RegistrationActivity" />
+        <activity android:name=".ui.activities.RegistrationActivity"
+            android:label="Register new User"/>
         <activity
             android:name=".ui.activities.QrcodeScanner"
             android:label="Scan the code"
