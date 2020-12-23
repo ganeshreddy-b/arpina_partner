@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -18,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sanjay.androidamcservice.R;
 import com.sanjay.androidamcservice.repository.dto.contact.ContactItem;
-import com.sanjay.androidamcservice.ui.fragments.notifications.NotificationsFragment;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.sanjay.androidamcservice.ui.fragments.notifications;
+package com.sanjay.androidamcservice.ui.fragments.refferal;
 
 import android.database.Cursor;
 import android.os.Bundle;
