@@ -8,6 +8,8 @@ import androidx.multidex.MultiDexApplication;
 import com.downloader.PRDownloader;
 import com.downloader.PRDownloaderConfig;
 
+import io.kommunicate.Kommunicate;
+
 public class MyApplication extends MultiDexApplication {
 
     private static MyApplication instance;
@@ -38,6 +40,7 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         instance = this;
         initializePrDownloader();
+//        Kommunicate.init(this, Constants.KOMMUNICATE_APP_ID);
     }
 
     private void initializePrDownloader() {

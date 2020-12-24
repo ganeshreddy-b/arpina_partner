@@ -42,6 +42,18 @@ public class User {
     @SerializedName("profile_image")
     @Expose
     private String profileImage;
+    @SerializedName("country")
+    @Expose
+    private String country;
+    @SerializedName("state")
+    @Expose
+    private String state;
+    @SerializedName("zipcode")
+    @Expose
+    private String zipcode;
+    @SerializedName("companyname")
+    @Expose
+    private String companyname;
 
     public String getUsername() {
         return username;
@@ -139,4 +151,35 @@ public class User {
         this.profileImage = profileImage;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getCompanyname() {
+        return companyname;
+    }
+
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
+    }
 }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.sanjay.androidamcservice.app.Constants;
+
 public class AppSharedPreference {
 
     private final SharedPreferences mPrefs;
@@ -26,6 +28,7 @@ public class AppSharedPreference {
     private final String CITY= "city";
     private final String ABOUTME= "about_me";
     private final String PROFILE_IMAGE= "profile_image";
+    private final String COMPANY_NAME= "company_name";
 
     public String getTokenKey() {
         return mPrefs.getString(PREF_Key, "");
@@ -138,7 +141,7 @@ public class AppSharedPreference {
     }
 
     public String getProfileImageKey() {
-        return mPrefs.getString(PROFILE_IMAGE, "");
+        return mPrefs.getString(Constants.HOST+PROFILE_IMAGE, "");
     }
 
     public void setProfileImageKey(String pREF_Key) {
@@ -147,6 +150,14 @@ public class AppSharedPreference {
         mEditor.apply();
     }
 
+    public String getCompanyNameKey() {
+        return mPrefs.getString(COMPANY_NAME, "");
+    }
 
+    public void setCompanyNameKey(String pREF_Key) {
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putString(COMPANY_NAME, pREF_Key);
+        mEditor.apply();
+    }
 
 }

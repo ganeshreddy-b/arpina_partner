@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                     appSharedPreference.setBirthKey(response.body().getUser().getBirthDate());
                     appSharedPreference.setCityKey(response.body().getUser().getCity());
                     appSharedPreference.setUsernameKey(response.body().getUser().getUsername());
+                    appSharedPreference.setProfileImageKey(response.body().getUser().getProfileImage());
+                    appSharedPreference.setCompanyNameKey(response.body().getUser().getCompanyname());
                     startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                 }
             }

@@ -1,10 +1,12 @@
-package com.sanjay.androidamcservice;
+package com.sanjay.androidamcservice.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ticket_view extends AppCompatActivity {
+import com.sanjay.androidamcservice.R;
+
+public class TicketviewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

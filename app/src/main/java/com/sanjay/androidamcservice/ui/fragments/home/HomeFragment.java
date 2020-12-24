@@ -17,6 +17,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.sanjay.androidamcservice.R;
 import com.sanjay.androidamcservice.databinding.FragmentHomeBinding;
 import com.sanjay.androidamcservice.ui.activities.QrcodeScanner;
+import com.sanjay.androidamcservice.ui.fragments.profile.MyProfileFragment;
+import com.sanjay.androidamcservice.utils.AppSharedPreference;
 
 
 import java.io.IOException;
@@ -26,6 +28,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     FragmentHomeBinding binding;
+    AppSharedPreference appSharedPreference;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,12 +36,20 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         View root = binding.getRoot();
+        appSharedPreference=new AppSharedPreference(getActivity());
         binding.cardScanQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), QrcodeScanner.class));
             }
         });
+        binding.cardViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MyProfileFragment.class));
+            }
+        });
+        binding.txtCompanyName.setText(appSharedPreference.getCompanyNameKey());
 //        final TextView textView = root.findViewById(R.id.text_home);
 //        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
 //            @Override
