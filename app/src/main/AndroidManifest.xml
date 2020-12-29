@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAmcService_android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activities.ChatActivity"></activity>
+        <activity android:name=".ui.activities.ChatActivity" />
         <activity
             android:name=".ui.activities.RegistrationActivity"
             android:label="Register new User" />

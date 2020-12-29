@@ -9,14 +9,14 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/bottom_support"
+        android:id="@+id/bottom_tickets"
         android:icon="@drawable/support"
-        android:title="@string/title_support" />
+        android:title="Tickets" />
 
     <item
-        android:id="@+id/bottom_refer"
+        android:id="@+id/bottom_inventory"
         android:icon="@drawable/refer"
-        android:title="@string/title_refer" />
+        android:title="Inventory" />
     <item
         android:id="@+id/bottom_myProfile"
         android:icon="@drawable/profileimg"

@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 binding.otpView.setVisibility(View.VISIBLE);
                 binding.btnRequestOTP.setVisibility(View.GONE);
 //                login();
-                validatePhone();
+//                validatePhone();
 
             }
         });
