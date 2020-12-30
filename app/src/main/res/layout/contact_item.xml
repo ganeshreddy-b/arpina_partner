@@ -11,15 +11,17 @@
 
         <ImageView
             android:id="@+id/IVContactImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
 
             <TextView
                 android:id="@+id/TVcontactname"

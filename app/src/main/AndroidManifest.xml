@@ -19,6 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAmcService_android"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activities.AddServiceActivity"></activity>
+        <activity android:name=".ui.activities.AddProductActivity" />
+        <activity android:name=".ui.activities.ClientList" />
+        <activity android:name=".BusinessDetailsForm" />
+        <activity android:name=".ui.activities.InventoryActivity" />
         <activity android:name=".ui.activities.ChatActivity" />
         <activity
             android:name=".ui.activities.RegistrationActivity"

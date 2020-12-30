@@ -38,6 +38,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="at">/@</string>
+
     <!--    TODO:Translate-->
     <string name="login_or_sign_up_info">Login</string>
     <string name="login_as_vistor">Login as visitor</string>
